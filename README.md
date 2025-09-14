@@ -28,12 +28,13 @@ npm install
 
 Создайте файл с именем `.env` в папке проекта и добавьте в него следующие переменные. Замените значения на ваши данные для подключения к PostgreSQL.
 
+```
 DB_HOST=localhost
 DB_PORT=5432
-DB_USERNAME=postgres                                <---- Сменить на Ваш username
-DB_PASSWORD=your_password                           <---- Сменить на Ваш password
-DB_DATABASE=postgres                                <---- Сменить на Ваш database
-
+DB_USERNAME=postgres           <---- Сменить на Ваш username
+DB_PASSWORD=your_password      <---- Сменить на Ваш password
+DB_DATABASE=postgres           <---- Сменить на Ваш database
+```
 ## 4. Запуск приложения
 
 В любой консоли, по располажнию проекта, вводите следующее:
@@ -78,11 +79,13 @@ npm install
 
 Create a file named `.env` in the project folder and add the following variables to it. Replace the values with your data for connecting to PostgreSQL.
 
+```
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres      <---- Change to your username
 DB_PASSWORD=your_password <---- Change to your password
 DB_DATABASE=postgres      <---- Change to your database
+```
 
 ##4. Launching the app
 
