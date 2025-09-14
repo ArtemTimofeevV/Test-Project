@@ -1,52 +1,100 @@
-Установка
+API для E-commerce платформы
 
-1. Клонируйте репозиторий:
-	cd (папка куда решите выгрузить проект)
-	git clone https://github.com/ArtemIDv/Test-Project
+Простое API для тестового проекта E-commerce.
 
-2. Установите зависимости:
-	npm install
+---
 
-3. Настройте БД:
-	Откройте файл `src/data-source.ts` и введите свои учетные данные для подключения к базе данных (имя пользователя, пароль, имя базы данных).
+# Быстрый старт
+
+## Требования
+
+-   [Node.js](https://nodejs.org/) (версия LTS)
+-   [PostgreSQL](https://www.postgresql.org/)
+
+## 1. Клонирование репозитория
+
+В любой консоли вводите следующее:
+
+1) git clone https://github.com/ArtemIDv/Test-Project
+2) cd Test-Project
+
+
+## 2. Установка зависимостей
+
+В любой консоли, по располажнию проекта, вводите следующее:
+npm install
+
+## 3. Настройка окружения
+
+Создайте файл с именем `.env` в папке проекта и добавьте в него следующие переменные. Замените значения на ваши данные для подключения к PostgreSQL.
 
 ```
-     export const AppDataSource = new DataSource({
-         type: "postgres",
-         host: "localhost",
-         port: 5432,
-         username: "your_username",                                                     <-----     Замените на ваше имя пользователя
-         password: "your_password",                                                     <-----     Замените на ваш пароль
-         database: "your_database",                                                     <-----     Замените на имя вашей базы данных
-         synchronize: true, // В режиме разработки можно оставить true
-         logging: false,
-         entities: [__dirname + "/entities/**/*.{ts,js}"],
-         migrations: [],
-         subscribers: [],
-     })
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres           <---- Сменить на Ваш username
+DB_PASSWORD=your_password      <---- Сменить на Ваш password
+DB_DATABASE=postgres           <---- Сменить на Ваш database
 ```
-	Запуск приложения
+## 4. Запуск приложения
 
-Чтобы запустить приложение в режиме разработки, выполните команду:
-
+В любой консоли, по располажнию проекта, вводите следующее:
 npm start
 
-Сервер будет запущен по адресу `http://localhost:3000`.
+Сервер запустится по адресу `http://localhost:3000`.
 
-	Сборка проекта
+## 5. Документация API
 
-Для сборки проекта в JavaScript выполните команду:
+Документация Swagger UI доступна по адресу:
+`http://localhost:3000/api-docs`
 
-npm run build
+______________________________________________________________________________________________________________________________________
 
-Собранные файлы появятся в папке `dist`.
+API for the E-commerce platform
 
-	API Документация
+A simple API for an E-commerce test project.
 
-После запуска сервера, документация Swagger будет доступна по адресу:
+---
 
-http://localhost:3000/api-docs
+# Quick start
 
-	Тестирование
+## Requirements
 
-Вы можете использовать Postman или любой другой инструмент для тестирования API. Отправляйте запросы на эндпоинты, описанные в документации Swagger.
+- [Node.js ](https://nodejs.org /) (LTS version)
+- [PostgreSQL](https://www.postgresql.org /)
+
+## 1. Cloning a repository
+
+In any console, enter the following:
+
+1) git clone https://github.com/ArtemIDv/Test-Project
+2) cd Test-Project
+
+
+## 2. Installing dependencies
+
+In any console, at the location of the project, enter the following:
+npm install
+
+##3. Setting up the environment
+
+Create a file named `.env` in the project folder and add the following variables to it. Replace the values with your data for connecting to PostgreSQL.
+
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres      <---- Change to your username
+DB_PASSWORD=your_password <---- Change to your password
+DB_DATABASE=postgres      <---- Change to your database
+```
+
+##4. Launching the app
+
+In any console, at the location of the project, enter the following:
+npm start
+
+The server will start at `http://localhost:3000 `.
+
+## 5. API Documentation
+
+The Swagger UI documentation is available at:
+`http://localhost:3000/api-docs`
