@@ -1,7 +1,5 @@
-
 import { Router } from 'express';
-import { AppDataSource } from '../data-source';
-import { Product } from '../entities/Product';
+import { productRepository } from '../repositories';
 
 const router = Router();
 
@@ -29,8 +27,8 @@ const router = Router();
  *                 $ref: '#/components/schemas/Product'
  */
 router.get('/products', async (req, res) => {
-  const productRepository = AppDataSource.getRepository(Product);
   const products = await productRepository.find();
+
   res.json(products);
 });
 
@@ -58,8 +56,8 @@ router.get('/products', async (req, res) => {
  *         description: The product was not found
  */
 router.get('/products/:id', async (req, res) => {
-  const productRepository = AppDataSource.getRepository(Product);
   const product = await productRepository.findOneBy({ product_id: parseInt(req.params.id) });
+
   if (product) {
     res.json(product);
   } else {
@@ -90,9 +88,10 @@ router.get('/products/:id', async (req, res) => {
  *         description: Some server error
  */
 router.post('/products', async (req, res) => {
-  const productRepository = AppDataSource.getRepository(Product);
   const newProduct = productRepository.create(req.body);
+
   await productRepository.save(newProduct);
+
   res.status(201).json(newProduct);
 });
 

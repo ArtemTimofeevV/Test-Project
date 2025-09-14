@@ -1,4 +1,3 @@
-
 import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column } from "typeorm";
 import { User } from "./User";
 

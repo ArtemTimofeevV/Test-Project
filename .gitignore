@@ -1,12 +1,10 @@
 # Dependencies
 /node_modules
+/package-lock.json
+/package-lock.json
 
-# Build output
+# Production
 /dist
 
-# Log files
-*.log
-npm-debug.log*
-
-# Environment variables
-.env
+# IDEs
+.idea/
