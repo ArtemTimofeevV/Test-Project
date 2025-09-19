@@ -1,4 +1,4 @@
-API for the E-commerce platform 
+API for the E-commerce platform
 
 A simple API for an E-commerce test project.
 
@@ -43,7 +43,7 @@ npm start
 
 The server will start at `http://localhost:3000 `.
 
-## 5. API Documentation
+## 5. API Documentation.
 
 The Swagger UI documentation is available at:
 `http://localhost:3000/api-docs`
