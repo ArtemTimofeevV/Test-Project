@@ -1,4 +1,4 @@
-API for the E-commerce platform
+API for the E-commerce platform 
 
 A simple API for an E-commerce test project.
 
