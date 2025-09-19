@@ -1,98 +1,27 @@
 import { Router } from 'express';
-import { productRepository } from '../repositories';
+import { ProductController } from '../../controllers/products';
 
 const router = Router();
 
-/**
- * @swagger
- * tags:
- *   name: Products
- *   description: Product management
- */
+// Get all products
+router.get('/', ProductController.getAll);
 
-/**
- * @swagger
- * /products:
- *   get:
- *     summary: Retrieve a list of products
- *     tags: [Products]
- *     responses:
- *       200:
- *         description: A list of products.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Product'
- */
-router.get('/products', async (req, res) => {
-  const products = await productRepository.find();
+// Get a single product by ID
+router.get('/:id', ProductController.getById);
 
-  res.json(products);
-});
+// Create a new product
+router.post('/', ProductController.create);
 
-/**
- * @swagger
- * /products/{id}:
- *   get:
- *     summary: Get a product by ID
- *     tags: [Products]
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: integer
- *         required: true
- *         description: The product ID
- *     responses:
- *       200:
- *         description: The product description by id
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Product'
- *       404:
- *         description: The product was not found
- */
-router.get('/products/:id', async (req, res) => {
-  const product = await productRepository.findOneBy({ product_id: parseInt(req.params.id) });
+// Update a product
+router.put('/:id', ProductController.update);
 
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).send('Product not found');
-  }
-});
+// Delete a product
+router.delete('/:id', ProductController.delete);
 
-/**
- * @swagger
- * /products:
- *   post:
- *     summary: Create a new product
- *     tags: [Products]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Product'
- *     responses:
- *       201:
- *         description: The product was successfully created
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Product'
- *       500:
- *         description: Some server error
- */
-router.post('/products', async (req, res) => {
-  const newProduct = productRepository.create(req.body);
+// Like a product
+router.post('/:id/like', ProductController.like);
 
-  await productRepository.save(newProduct);
-
-  res.status(201).json(newProduct);
-});
+// Dislike a product
+router.post('/:id/dislike', ProductController.dislike);
 
 export default router;

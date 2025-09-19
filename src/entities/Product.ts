@@ -33,12 +33,20 @@ import { Category } from "./Category";
  *         stock_quantity:
  *           type: integer
  *           description: The stock quantity of the product
+ *         likes:
+ *           type: integer
+ *           description: The number of likes for the product
+ *         dislikes:
+ *           type: integer
+ *           description: The number of dislikes for the product
  *       example:
  *         name: Sample Product
  *         description: This is a sample product.
  *         price: 99.99
  *         sku: SP001
  *         stock_quantity: 100
+ *         likes: 10
+ *         dislikes: 2
  */
 @Entity()
 export class Product {
@@ -60,6 +68,12 @@ export class Product {
 
     @Column()
     stock_quantity!: number;
+
+    @Column({ type: "int", default: 0 })
+    likes!: number;
+
+    @Column({ type: "int", default: 0 })
+    dislikes!: number;
 
     @ManyToOne(() => Category)
     category!: Category;
