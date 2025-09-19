@@ -1,8 +1,6 @@
-import 'dotenv/config';
-import 'reflect-metadata';
-<<<<<<< HEAD
 import express from 'express';
 import cors from 'cors';
+
 import { AppDataSource } from './data-source';
 import { setupSwagger } from './swagger';
 import productRoutes from './routes/products';
@@ -10,18 +8,14 @@ import productRoutes from './routes/products';
 const app = express();
 const port = 3000;
 
-// Middleware setup
 app.use(cors());
 app.use(express.json());
 
-// Route setup
 app.use('/', productRoutes);
 
-// Swagger setup
 setupSwagger(app);
 
-// IIFE to handle async initialization
-(async () => {
+export const startServer = async () => {
   try {
     await AppDataSource.initialize();
     console.log('Data Source has been initialized!');
@@ -33,9 +27,4 @@ setupSwagger(app);
   } catch (err) {
     console.error('Error during Data Source initialization', err);
   }
-})();
-=======
-import { startServer } from './app';
-
-startServer();
->>>>>>> d403b6ab02efc8b905cd0020e4da37c5a4438ba0
+};

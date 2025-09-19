@@ -1,6 +1,9 @@
 # Dependencies
 /node_modules
+/package-lock.json
+/package-lock.json
 
+<<<<<<< HEAD
 # Build artifacts
 /dist
 
@@ -26,3 +29,10 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+=======
+# Production
+/dist
+
+# IDEs
+.idea/
+>>>>>>> d403b6ab02efc8b905cd0020e4da37c5a4438ba0
