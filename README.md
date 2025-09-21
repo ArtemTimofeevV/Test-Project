@@ -4,7 +4,7 @@ A simple API for an E-commerce test project.
 
 ----
 
-# Quick start.
+# Quick start...
 
 ## Requirements
 
