@@ -2,9 +2,9 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { Express } from 'express';
 
-const port = 3000;
+const PORT = 3000;
 
-const swaggerOptions = {
+const SWAGGER_OPTIONS = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
@@ -14,15 +14,15 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${port}`,
+        url: `http://localhost:${PORT}`,
       },
     ],
   },
   apis: ['./src/routes/*.ts', './src/entities/*.ts'],
 };
 
-const swaggerDocs = swaggerJsdoc(swaggerOptions);
+const SWAGGER_DOCS = swaggerJsdoc(SWAGGER_OPTIONS);
 
-export const setupSwagger = (app: Express) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+export const setupSwagger = (APP: Express) => {
+  APP.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SWAGGER_DOCS));
 };

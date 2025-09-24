@@ -1,30 +1,29 @@
-import express from 'express';
 import cors from 'cors';
-
+import express from 'express';
+import productRoutes from './routes/products';
 import { AppDataSource } from './data-source';
 import { setupSwagger } from './swagger';
-import productRoutes from './routes/products';
 
-const app = express();
-const port = 3000;
+const APP = express();
+const PORT = 3000;
 
-app.use(cors());
-app.use(express.json());
+APP.use(cors());
+APP.use(express.json());
 
-app.use('/', productRoutes);
+APP.use('/', productRoutes);
 
-setupSwagger(app);
+setupSwagger(APP);
 
 export const startServer = async () => {
   try {
     await AppDataSource.initialize();
     console.log('Data Source has been initialized!');
 
-    app.listen(port, () => {
-      console.log(`Server is running on http://localhost:${port}`);
-      console.log(`Swagger docs available at http://localhost:${port}/api-docs`);
+    APP.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
     });
-  } catch (err) {
-    console.error('Error during Data Source initialization', err);
+  } catch (ERR) {
+    console.error('Error during Data Source initialization', ERR);
   }
 };

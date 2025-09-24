@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
-import { User } from "./User";
 import { OrderItem } from "./OrderItem";
+import { User } from "./User";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 
-@Entity("orders") // "order" is a reserved keyword in SQL
+@Entity("orders")
 export class Order {
 
     @PrimaryGeneratedColumn()
