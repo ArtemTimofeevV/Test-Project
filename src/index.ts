@@ -1,5 +1,5 @@
 import 'dotenv/config';
 import 'reflect-metadata';
-import { startServer } from './app';
+import { START_SERVER } from './app';
 
-startServer();
+START_SERVER();
