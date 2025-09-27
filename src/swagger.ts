@@ -23,6 +23,6 @@ const SWAGGER_OPTIONS = {
 
 const SWAGGER_DOCS = swaggerJsdoc(SWAGGER_OPTIONS);
 
-export const SETUP_SWAGGER = (APP: Express) => {
-  APP.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SWAGGER_DOCS));
+export const setupSwagger = (app: Express) => {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(SWAGGER_DOCS));
 };
