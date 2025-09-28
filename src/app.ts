@@ -4,22 +4,22 @@ import productRoutes from './routes/products';
 import { APP_DATA_SOURCE } from './data-source';
 import { setupSwagger } from './swagger';
 
-const app = express();
+const APP = express();
 const PORT = 3000;
 
-app.use(cors());
-app.use(express.json());
+APP.use(cors());
+APP.use(express.json());
 
-app.use('/', productRoutes);
+APP.use('/', productRoutes);
 
-setupSwagger(app);
+setupSwagger(APP);
 
 export const startServer = async () => {
   try {
     await APP_DATA_SOURCE.initialize();
     console.log('Data Source has been initialized!');
 
-    app.listen(PORT, () => {
+    APP.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
       console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
     });
