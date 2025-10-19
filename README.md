@@ -1,6 +1,6 @@
 # Telegram Report Bot
 
-This is a Telegram bot designed for users to create and submit reports, and for administrators to view and manage these reports.
+@Francesco_Datini_Bot is a Telegram bot designed for users to create and submit reports, and for administrators to view and manage these reports.
 
 ## Features
 
